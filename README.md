@@ -15,6 +15,7 @@ This project provisions a Windows Virtual Machine in Azure using Terraform, and 
 ├── cloudinit.ps1               # PowerShell test script to run post-deployment
 ├── install-cloudbase-init.ps1  # PowerShell script to download CloudBase-Init and PowerShell test script
 ├── cloudbase-init-unattend.xml # Cloudbase-Init configuration for FirstLogon
+├── README.md                   # Readme File
 └── .gitignore                  # Git ignore rules
 
 ````
@@ -24,6 +25,7 @@ This project provisions a Windows Virtual Machine in Azure using Terraform, and 
 ## 🚀 Features
 
 - Provision Windows Server 2022 VM on Azure
+- Download and Install Cloudbase-Init on VM
 - Install and execute a PowerShell script at first boot using Cloudbase-Init
 - Secure configuration via `terraform.tfvars`
 - Storage account, virtual network, subnet, and NIC auto-created
@@ -37,7 +39,7 @@ This project provisions a Windows Virtual Machine in Azure using Terraform, and 
 Update `terraform.tfvars` with your Azure subscription ID and desired settings:
 
 ```hcl
-subscription_id = "your-subscription-id"
+subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ````
 
 ### 2. Initialize Terraform
@@ -64,7 +66,6 @@ terraform apply
 
 * Terraform CLI ≥ 1.0
 * Azure CLI authenticated (`az login`)
-* Cloudbase-Init must be pre-installed in the VM image or configured post-deployment
 
 ---
 
