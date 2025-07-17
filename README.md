@@ -12,8 +12,9 @@ This project provisions a Windows Virtual Machine in Azure using Terraform, and 
 ├── main.tf                     # Terraform configuration
 ├── variables.tf                # Input variables
 ├── terraform.tfvars            # Sensitive values (ignored by git)
-├── cloudinit.ps1               # PowerShell script to run post-deployment
-├── cloudbase-init-unattend.xml# Cloudbase-Init configuration for FirstLogon
+├── cloudinit.ps1               # PowerShell test script to run post-deployment
+├── install-cloudbase-init.ps1  # PowerShell script to download CloudBase-Init and PowerShell test script
+├── cloudbase-init-unattend.xml # Cloudbase-Init configuration for FirstLogon
 └── .gitignore                  # Git ignore rules
 
 ````
