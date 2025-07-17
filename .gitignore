@@ -33,3 +33,4 @@ Thumbs.db
 *.swo
 *.bak
 *.tmp
+.terraform.tfstate.lock.info
