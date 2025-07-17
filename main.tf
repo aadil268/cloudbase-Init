@@ -61,6 +61,21 @@ resource "azurerm_windows_virtual_machine" "vm" {
   custom_data = base64encode(file("cloudbase-init-unattend.xml"))
 }
 
+resource "azurerm_virtual_machine_extension" "cloudbaseinit" {
+  name                 = "install-cloudbase-init"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm.id
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.10"
+
+  settings = jsonencode({
+    fileUris = [
+      "https://raw.githubusercontent.com/aadil268/cloudbase-Init/main/install-cloudbase-init.ps1"
+    ],
+    commandToExecute = "powershell -ExecutionPolicy Unrestricted -File install-cloudbase-init.ps1"
+  })
+}
+
 resource "azurerm_storage_account" "sa" {
   name                     = "sacloudinitfiles${random_integer.rand.result}"
   resource_group_name      = azurerm_resource_group.rg.name
